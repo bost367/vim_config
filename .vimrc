@@ -73,12 +73,13 @@ set guifont=Consolas:h10
 set guioptions-=T
 syntax enable
 set background=dark
-colorscheme solarized
+"colorscheme solarized
+colorscheme dracula
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                   Mapping                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nnoremap <silent> <M-q> :NERDTreeToggle<CR>
+nnoremap <silent> <M-k1> :NERDTreeToggle<CR>
 function! ChangeBuf(cmd)
     if (&modified && &modifiable)
         execute ":w"
@@ -88,6 +89,7 @@ endfunction
 nnoremap <silent> <M-Right> :call ChangeBuf(":bn")<CR>
 nnoremap <silent> <M-Left> :call ChangeBuf(":bp")<CR>
 nnoremap <silent> <C-b> :YcmCompleter GoTo<CR>
+nnoremap <silent> <C-F4> :bp<bar>sp<bar>bn<bar>bd<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                YouCompleteMe                            "
