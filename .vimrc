@@ -17,6 +17,8 @@ Plugin 'octol/vim-cpp-enhanced-highlight'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'drmikehenry/vim-fixkey'
+Plugin 'matze/vim-move'
+Plugin 'tpope/vim-fugitive'
 
 Plugin 'derekwyatt/vim-fswitch'
 Plugin 'majutsushi/tagbar'
@@ -79,7 +81,6 @@ colorscheme dracula
 "                                   Mapping                               "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
-nnoremap <silent> <M-k1> :NERDTreeToggle<CR>
 function! ChangeBuf(cmd)
     if (&modified && &modifiable)
         execute ":w"
@@ -87,9 +88,14 @@ function! ChangeBuf(cmd)
     execute a:cmd
 endfunction
 nnoremap <silent> <M-Right> :call ChangeBuf(":bn")<CR>
-nnoremap <silent> <M-Left> :call ChangeBuf(":bp")<CR>
-nnoremap <silent> <C-b> :YcmCompleter GoTo<CR>
-nnoremap <silent> <C-F4> :bp<bar>sp<bar>bn<bar>bd<CR>
+nnoremap <silent> <M-Left> :call ChangeBuf(":bp")<CR>   
+nnoremap <silent> <C-b> :YcmCompleter GoTo<CR>          "jump into declaration
+nnoremap <silent> <C-F4> :bp<bar>sp<bar>bn<bar>bd<CR>   "allow show tree after cllosing buffers
+nnoremap <silent> <M-q> :NERDTreeToggle<CR>             "show tree
+map <S-C-Down> <Plug>MoveLineDown 
+map <S-C-Up> <Plug>MoveLineUp
+vmap <S-C-Down> <Plug>MoveBlockDown
+vmap <S-C-Up> <Plug>MoveBlockUp
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                YouCompleteMe                            "
@@ -128,6 +134,7 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                                Airline                                  "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+let g:airline#extensions#branch#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tabline#left_sep = ' '
