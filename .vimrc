@@ -69,6 +69,8 @@ inoremap ' ''<LEFT>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 "                            Colors an fonts                              "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+set guifont=Consolas:h10
+set guioptions-=T
 syntax enable
 set background=dark
 colorscheme solarized
@@ -83,8 +85,8 @@ function! ChangeBuf(cmd)
     endif
     execute a:cmd
 endfunction
-nnoremap <silent> <M-Left> :call ChangeBuf(":bn")<CR>
-nnoremap <silent> <M-Right> :call ChangeBuf(":bp")<CR>
+nnoremap <silent> <M-Right> :call ChangeBuf(":bn")<CR>
+nnoremap <silent> <M-Left> :call ChangeBuf(":bp")<CR>
 nnoremap <silent> <C-b> :YcmCompleter GoTo<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
