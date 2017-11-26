@@ -63,6 +63,10 @@ set hidden              " allows making buffers hidden even with unsaved changes
 set history=1000        " remember more commands and search history
 set undolevels=1000     " use many levels of undo
 set autoread            " auto read when a file is changed from the outside
+set exrc
+set secure
+set colorcolumn=110
+highlight ColorColumn ctermbg=darkgray
 
 imap [ []<LEFT>
 imap { {}<LEFT>
